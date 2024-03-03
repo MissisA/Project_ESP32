@@ -78,7 +78,7 @@ void ultrasonic_test(void *pvParameters)
         else
         {
             char buffer[20];
-            sprintf(buffer, "Distance: %.2fm", distance);
+            sprintf(buffer, "Distance:%0.04fm", distance);
             lcd_put_cur(0, 0);
             lcd_send_string(buffer);
             vTaskDelay(pdMS_TO_TICKS(500));
@@ -88,7 +88,7 @@ void ultrasonic_test(void *pvParameters)
             
             gpio_set_direction(BUZZER_GPIO, GPIO_MODE_OUTPUT);
 
-            if (distance >= 0.15) {
+            if (distance >= 0.1500) {
                 gpio_set_level(BLUE_LED_GPIO, 1); // Turn on blue LED
                 gpio_set_level(RED_LED_GPIO, 0); // Turn off red LED
                 gpio_set_level(BUZZER_GPIO, 0); // Turn off buzzer
