@@ -1,0 +1,16 @@
+[1/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/i2c_simple_main.c.obj
+[2/10] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D C:\Users\Supan\LCD1\build\bootloader\esp-idf\esptool_py && C:\Users\Supan\.espressif\python_env\idf5.2_py3.11_env\Scripts\python.exe C:/Users/Supan/esp/v5.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/Supan/LCD1/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6850 bytes. 0x7b0 bytes (7%) free.
+[3/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/i2c_lcd.c.obj
+[4/8] Linking C static library esp-idf\main\libmain.a
+[5/8] Generating ld/sections.ld
+[6/8] Linking CXX executable LCD1.elf
+[7/8] Generating binary image from built executable
+esptool.py v4.7.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated C:/Users/Supan/LCD1/build/LCD1.bin
+[8/8] cmd.exe /C "cd /D C:\Users\Supan\LCD1\build\esp-idf\esptool_py && C:\Users\Supan\.espressif\python_env\idf5.2_py3.11_env\Scripts\python.exe C:/Users/Supan/esp/v5.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Users/Supan/LCD1/build/partition_table/partition-table.bin C:/Users/Supan/LCD1/build/LCD1.bin"
+LCD1.bin binary size 0x30a90 bytes. Smallest app partition is 0x100000 bytes. 0xcf570 bytes (81%) free.
