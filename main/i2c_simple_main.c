@@ -1,32 +1,37 @@
-#include <stdio.h>
-#include "esp_log.h"
-#include "driver/i2c.h"
-#include "i2c_lcd.h"
-#include <stdbool.h> 
-#include <freertos/FreeRTOS.h>
-#include <freertos/task.h>
-#include <ultrasonic.h>
-#include <esp_err.h> 
-#include "driver/gpio.h"
+#include <stdio.h> 
+#include "esp_log.h" // บันทึก Log
+#include "driver/i2c.h" // โมดูล I2C 
+#include "i2c_lcd.h" // ควบคุมจอ LCD ผ่าน I2C
+#include <stdbool.h> // boolean (true/false)
+#include <freertos/FreeRTOS.h> // Real-Time Operating
+#include <freertos/task.h> // Task & Scheduling
+#include <ultrasonic.h> // Ultrasonic sensor
+#include <esp_err.h>  // Error
+#include "driver/gpio.h" // ขา GPIO
 
+/* ขา ultrasonic */
 #define MAX_DISTANCE_CM 500 // 5m max 
 #define TRIGGER_GPIO 5 
-#define ECHO_GPIO 18
-
-#define RED_LED_GPIO 26//Define GPIO for red_led
-#define BLUE_LED_GPIO 25//Define GPIO for blue_led
-
+#define ECHO_GPIO 18 
+/* ขา LED */
+#define RED_LED_GPIO 26 // Define GPIO for red_led
+#define BLUE_LED_GPIO 25 // Define GPIO for blue_led
+/* ขา buzzer */
 #define BUZZER_GPIO 23 // Define GPIO for buzzer
 
 
-static const char *TAG = "i2c-simple-example";
+static const char *TAG = "i2c-simple-example"; // TAG บันทึก Log ของโปรแกรม
 
 
 float distance;
 
+/* ช่วยให้ผู้เข้าใจโค้ดสามารถเข้าใจหรือเข้าถึงการทำงานของโค้ดได้ง่ายขึ้น
+โดยไม่ต้องดูรายละเอียดในโค้ดต้นฉบับทุกครั้งที่ต้องการ*/
 /**
  * @brief i2c master initialization
  */
+
+/* ฟังก์ชัน เริ่มต้นการทำงานของโมดูล I2C เป็นโหมด Master */
 static esp_err_t i2c_master_init(void)
 {
     int i2c_master_port = I2C_NUM_0;
